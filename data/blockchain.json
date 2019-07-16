@@ -1,226 +1,32 @@
+{
+  "array": [
+    {
+      "index": 2,
+      "time": 1562658342,
+      "locations": "Location[gps 10.998380,76.945564 hAcc=12 et=+1h49m25s948ms alt=347.82818603515625 vel=0.0 vAcc=6 sAcc=0 bAcc=??? {mParcelledData.dataSize]}]",
+      "nounce": 3488,
+      "prehash": "8eacf615b71da42aeef2708a659e5440f28c6f57"
+    },
 
-[
-	
-	{
-		"index":1,
-		"time":1562658200,
-		"locations":
-		[
-			
-			{
-				"locationOf":"Demo",
-				"receiver":"test",
-				"coordinates":"11.127122499999999,78.6568942"
-			}
-		],
-		"nounce":0,
-		"prehash":"0"
-	},
-	
-	{
-		"index":2,
-		"time":1562658342,
-		"locations":"Location
-		[
-			gps 10.998411,
-			76.945533 hAcc=10 et=+2d21h6m59s685ms alt=327.7578125 vel=0.0 vAcc=3 sAcc=0 bAcc=??? 
-			{
-				Bundle
-				[
-					mParcelledData.dataSize=96
-				]
-			}
-		]",
-		"nounce":3488,
-		"prehash":"8eacf615b71da42aeef2708a659e5440f28c6f57"
-	},
-	
-	{
-		"index":3,
-		"time":1562658349,
-		"nounce":57,
-		"prehash":"4914ecea9642e53ab3cdac284490357e52c837f5"
-	},
-	
-	{
-		"index":4,
-		"time":1562658356,
-		"nounce":1099,
-		"prehash":"ba761a01e77674362eb6e238dff3f614f1e27ad0"
-	},
-	
-	{
-		"index":5,
-		"time":1562658360,
-		"nounce":139,
-		"prehash":"efe8c465f06b665f71a31f087ae3db689fb8597a"
-	},
-	
-	{
-		"index":6,
-		"time":1562668401,
-		"locations":"Location
-		[
-			gps 10.998380,
-			76.945564 hAcc=12 et=+1h49m25s948ms alt=347.82818603515625 vel=0.0 vAcc=6 sAcc=0 bAcc=??? 
-			{
-				Bundle
-				[
-					mParcelledData.dataSize=96
-				]
-			}
-		]",
-		"nounce":100,
-		"prehash":"0ac98925ed2e225ee81e9eb656e6f8b92afa3ae0"
-	},
-	
-	{
-		"index":7,
-		"time":1562669093,
-		"locations":"Location
-		[
-			gps 10.998355,
-			76.945581 hAcc=15 et=+2h0m57s935ms alt=343.982177734375 vel=0.0 vAcc=12 sAcc=0 bAcc=??? 
-			{
-				Bundle
-				[
-					mParcelledData.dataSize=96
-				]
-			}
-		]",
-		"nounce":1068,
-		"prehash":"62f0f8fc64c4a472964614bcf080275def29ac62"
-	},
-	
-	{
-		"index":8,
-		"time":1562669119,
-		"locations":"Location
-		[
-			gps 10.998360,
-			76.945527 hAcc=21 et=+3d0h6m37s685ms alt=387.546875 vel=0.0 vAcc=12 sAcc=1 bAcc=??? 
-			{
-				Bundle
-				[
-					mParcelledData.dataSize=96
-				]
-			}
-		]",
-		"nounce":1277,
-		"prehash":"aea2a98828b95531da269ff5c15a5a3fd32d12d8"
-	},
-	
-	{
-		"index":9,
-		"time":1562670599,
-		"locations":"Location
-		[
-			gps 10.998443,
-			76.945689 hAcc=40 et=+3d0h31m17s679ms alt=335.691162109375 vel=1.01 bear=0.1 vAcc=24 sAcc=3 bAcc=85 
-			{
-				Bundle
-				[
-					mParcelledData.dataSize=96
-				]
-			}
-		]",
-		"message":"hey",
-		"nounce":406,
-		"prehash":"a062260579a0b51ed133b38c4df9e20e02dd1e7e"
-	},
-	
-	{
-		"index":10,
-		"time":1562670604,
-		"locations":"Location
-		[
-			gps 10.998478,
-			76.945716 hAcc=38 et=+3d0h31m22s684ms alt=337.9345703125 vel=0.73 bear=0.1 vAcc=24 sAcc=3 bAcc=90 
-			{
-				Bundle
-				[
-					mParcelledData.dataSize=96
-				]
-			}
-		]",
-		"message":"helo",
-		"nounce":1045,
-		"prehash":"f412701debe1a151ae9071e1706351ade813f168"
-	},
-	
-	{
-		"index":11,
-		"time":1562670607,
-		"locations":"Location
-		[
-			gps 10.998342,
-			76.945564 hAcc=14 et=+2h26m11s955ms alt=330.67681884765625 vel=0.0 vAcc=8 sAcc=0 bAcc=??? 
-			{
-				Bundle
-				[
-					mParcelledData.dataSize=96
-				]
-			}
-		]",
-		"message":"hi",
-		"nounce":2456,
-		"prehash":"b64421ec09b0e3f36ee6f218841b82d81ffb4a38"
-	},
-	
-	{
-		"index":12,
-		"time":1562670609,
-		"locations":"Location
-		[
-			gps 10.998343,
-			76.945565 hAcc=13 et=+2h26m13s937ms alt=330.7598876953125 vel=0.0 vAcc=8 sAcc=0 bAcc=??? 
-			{
-				Bundle
-				[
-					mParcelledData.dataSize=96
-				]
-			}
-		]",
-		"message":"bye",
-		"nounce":700,
-		"prehash":"61d87c3e629906bd53bfdee57f43430ba9a5074a"
-	},
-	
-	{
-		"index":13,
-		"time":1562670844,
-		"locations":"Location
-		[
-			gps 10.998307,
-			76.945592 hAcc=69 et=+3d0h34m51s681ms alt=334.167236328125 vel=1.59 bear=352.6172 vAcc=48 sAcc=3 bAcc=68 
-			{
-				Bundle
-				[
-					mParcelledData.dataSize=96
-				]
-			}
-		]",
-		"message":"hi",
-		"nounce":1044,
-		"prehash":"f6a8189cea4dbcdf188817a4a97aa76d2ac1e0ba"
-	},
-	
-	{
-		"index":14,
-		"time":1562670849,
-		"locations":"Location
-		[
-			gps 10.998336,
-			76.945563 hAcc=13 et=+2h30m13s939ms alt=330.3204345703125 vel=0.0 vAcc=6 sAcc=0 bAcc=??? 
-			{
-				Bundle
-				[
-					mParcelledData.dataSize=96
-				]
-			}
-		]",
-		"message":"hello",
-		"nounce":2067,
-		"prehash":"c3e6c8126438993da9df83976f4e0bb1cfde36fd"
-	}
-]
+    {
+      "index": 3,
+      "time": 1562658349,
+      "nounce": 57,
+      "prehash": "4914ecea9642e53ab3cdac284490357e52c837f5"
+    },
+
+    {
+      "index": 4,
+      "time": 1562658356,
+      "nounce": 1099,
+      "prehash": "ba761a01e77674362eb6e238dff3f614f1e27ad0"
+    },
+
+    {
+      "index": 5,
+      "time": 1562658360,
+      "nounce": 139,
+      "prehash": "efe8c465f06b665f71a31f087ae3db689fb8597a"
+    }
+  ]
+}
