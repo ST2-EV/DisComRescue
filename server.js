@@ -58,12 +58,14 @@ app.get("/home", (req, res) => {
           mainData.push(result.docs[i].array);
         }
         console.log(mainData);
+        res.render("index", {
+          title: "Hey",
+          message: "Hello there!",
+          data: mainData
+        });
       }
     );
   });
-
-  res.send("success");
-  //res.render("index", { title: "Hey", message: "Hello there!" });
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

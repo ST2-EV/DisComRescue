@@ -3,3 +3,17 @@ html
     title= title
   body
     h1= message
+      table(style='width:100%', border='1')
+      tr
+        th Index
+        th Time 
+        th Locations
+        th message
+        th battery
+
+      each n in data[0]
+        tr
+          td= n.index
+          td= n.time
+          td= n.locations
+          td= n.message
