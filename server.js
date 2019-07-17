@@ -1,9 +1,10 @@
-const fs = require("fs");
+// require Cloudant for DB
 const Cloudant = require("@cloudant/cloudant");
-const path = require("path");
 const express = require("express");
 const app = express();
 const port = 3000;
+
+//Cloudant authentication
 const cloudant = new Cloudant({
   account: "1e04787e-e7b3-4fe1-9288-8b2d56aa29ad-bluemix",
   plugins: {
@@ -13,7 +14,9 @@ const cloudant = new Cloudant({
   }
 });
 app.use(express.json({ extended: false }));
-app.post("/", (req, res) => {
+app.set("view engine", "pug");
+//Endpoint for nodes to send Data
+app.post("/api/sendData", (req, res) => {
   const blockchain = req.body;
   async function asyncCall() {
     let surv = await cloudant.use("survivors");
@@ -27,6 +30,40 @@ app.post("/", (req, res) => {
     .catch(err => {
       res.json(err);
     });
+});
+
+//Endpoint for home screen
+app.get("/home", (req, res) => {
+  var db = cloudant.db.use("survivors");
+  let mainData = new Array();
+  db.index(function(err, result) {
+    db.find(
+      {
+        selector: {
+          _id: {
+            $gt: null
+          }
+        }
+      },
+      function(err, result) {
+        if (err) {
+          throw err;
+        }
+
+        console.log(
+          "Found %d documents with name survivors",
+          result.docs.length
+        );
+        for (var i = 0; i < result.docs.length; i++) {
+          mainData.push(result.docs[i].array);
+        }
+        console.log(mainData);
+      }
+    );
+  });
+
+  res.send("success");
+  //res.render("index", { title: "Hey", message: "Hello there!" });
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
