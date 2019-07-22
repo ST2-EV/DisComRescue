@@ -14,6 +14,7 @@ const cloudant = new Cloudant({
   }
 });
 app.use(express.json({ extended: false }));
+app.use(express.static("public"));
 app.set("view engine", "pug");
 //Endpoint for nodes to send Data
 app.post("/api/sendData", (req, res) => {
@@ -31,6 +32,19 @@ app.post("/api/sendData", (req, res) => {
       res.json(err);
     });
 });
+function getUnique(arr, comp) {
+  const unique = arr
+    .map(e => e[comp])
+
+    // store the keys of the unique objects
+    .map((e, i, final) => final.indexOf(e) === i && i)
+
+    // eliminate the dead keys & store unique objects
+    .filter(e => arr[e])
+    .map(e => arr[e]);
+
+  return unique;
+}
 
 //Endpoint for home screen
 app.get("/home", (req, res) => {
@@ -55,13 +69,14 @@ app.get("/home", (req, res) => {
           result.docs.length
         );
         for (var i = 0; i < result.docs.length; i++) {
-          mainData.push(result.docs[i].array);
+          mainData.push(...result.docs[i].array);
         }
-        console.log(mainData);
+        const uniqData = getUnique(mainData, "prehash");
+        //console.log(uniqData);
         res.render("index", {
-          title: "Hey",
-          message: "Hello there!",
-          data: mainData
+          title: "DisCom",
+          message: "Survivor's List:",
+          data: uniqData
         });
       }
     );
