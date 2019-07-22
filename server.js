@@ -72,7 +72,7 @@ app.get("/home", (req, res) => {
           mainData.push(...result.docs[i].array);
         }
         const uniqData = getUnique(mainData, "prehash");
-        //console.log(uniqData);
+        console.log(uniqData);
         res.render("index", {
           title: "DisCom",
           message: "Survivor's List:",
