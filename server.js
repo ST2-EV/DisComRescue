@@ -45,6 +45,11 @@ function getUnique(arr, comp) {
 
   return unique;
 }
+function sortByProp(property) {
+  return function(x, y) {
+    return x[property] === y[property] ? 0 : x[property] > y[property] ? 1 : -1;
+  };
+}
 
 //Endpoint for home screen
 app.get("/home", (req, res) => {
@@ -72,6 +77,7 @@ app.get("/home", (req, res) => {
           mainData.push(...result.docs[i].array);
         }
         const uniqData = getUnique(mainData, "prehash");
+        uniqData.sort(sortByProp("battery"));
         console.log(uniqData);
         res.render("index", {
           title: "DisCom",
