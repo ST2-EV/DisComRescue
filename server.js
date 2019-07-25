@@ -3,6 +3,7 @@ const Cloudant = require("@cloudant/cloudant");
 const express = require("express");
 const app = express();
 const port = 3000;
+const geocenter = require("geographic-center");
 
 //Cloudant authentication
 const cloudant = new Cloudant({
@@ -78,7 +79,7 @@ app.get("/home", (req, res) => {
         }
         const uniqData = getUnique(mainData, "prehash");
         uniqData.sort(sortByProp("battery"));
-        console.log(uniqData);
+        //console.log(uniqData);
         res.render("index", {
           title: "DisCom",
           message: "Survivor's List:",
@@ -89,7 +90,91 @@ app.get("/home", (req, res) => {
   });
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+//END Point for the multimarker map
+app.get("/map", (req, res) => {
+  var db = cloudant.db.use("survivors");
+  let mainData = new Array();
+  db.index(function(err, result) {
+    db.find(
+      {
+        selector: {
+          _id: {
+            $gt: null
+          }
+        }
+      },
+      function(err, result) {
+        if (err) {
+          throw err;
+        }
 
-// let rawdata = fs.readFileSync(path.join(__dirname, "data", "blockchain.json"));
-// let blockchain = JSON.parse(rawdata);
+        console.log(
+          "Found %d documents with name survivors",
+          result.docs.length
+        );
+        for (var i = 0; i < result.docs.length; i++) {
+          mainData.push(...result.docs[i].array);
+        }
+        const uniqData = getUnique(mainData, "prehash");
+        let value = helper(uniqData);
+        //console.log(value[0]);
+        //console.log(value[1]);
+        const data = returnCoordinates(value[0]);
+        let points = new Array();
+        for (var j = 0; j < data.length; j++) {
+          points.push({ lat: data[j][1], lon: data[j][2] });
+        }
+        let cent = geocenter(points);
+        //console.log(cent);
+        var midsy = JSON.parse(
+          JSON.stringify(cent).replace('"lon":', '"lng":')
+        );
+        //console.log(midsy);
+        res.render("map", {
+          mids: midsy,
+          data: value[0],
+          count: value[1]
+        });
+      }
+    );
+  });
+});
+
+function helper(uniqData) {
+  let locData = new Array();
+  let countOfNoLocation = 0;
+  for (x in uniqData) {
+    if (uniqData[x].locations !== "") {
+      var patt = new RegExp("gps((.*))hA");
+      var res = patt.exec(uniqData[x].locations);
+      var newarr = [
+        uniqData[x].message +
+          "<>>>>" +
+          uniqData[x].time +
+          "<>>>>" +
+          uniqData[x].battery +
+          "%",
+        res[1]
+      ];
+      locData.push(newarr);
+    } else {
+      countOfNoLocation = countOfNoLocation + 1;
+    }
+  }
+  return [locData, countOfNoLocation];
+}
+function returnCoordinates(data) {
+  var x = data.map(da => [da[0], ...da[1].split(",")]);
+  var xy = new Array();
+  for (var i = 0; i < x.length; i++) {
+    xy[i] = x[i].map(g => {
+      if (g.indexOf("<") >= 0) {
+        return g;
+      } else {
+        return parseFloat(g);
+      }
+    });
+  }
+  return xy;
+}
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
