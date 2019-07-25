@@ -6,6 +6,9 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     // Bootstrap CSS
     link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
     title DISCOM
   body
     nav.navbar.navbar-dark.bg-dark
@@ -19,18 +22,22 @@ html(lang='en')
         thead.thead-dark
           tr
             th(scope='col') Index
+            th(scope='col') Name
             th(scope='col') Time
             th(scope='col') Location
+            th(scope='col') Address
             th(scope='col') Message
             th(scope='col') Battery Percentage
+
         tbody
           each n in data
             tr
               td= n.index
+              td= n.name
               td= n.time
               td
-                if n.locations !== ''
-                  button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal', data-whatever=n.locations) Open Map
+                if n.latitude !== ''
+                  button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal', data-lat=n.latitude, data-long=n.longitude) Open Map
                   #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
                     .modal-dialog(role='document')
                       .modal-content
@@ -42,23 +49,22 @@ html(lang='en')
                           iframe(width='470', height='450', frameborder='0', style='border:0', src='', allowfullscreen='')
                 else
                   p No Location Data
-                td= n.message
+              td= n.userdetails
+              td= n.message
               td= n.battery
     // Optional JavaScript
     // jQuery first, then Popper.js, then Bootstrap JS
-    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
-    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
+
     script.
       $('#exampleModal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget); // Button that triggered the modal
-      var recipient = button.data('whatever'); // Extract info from data-* attributes
+      var lat = button.data('lat');
+      var long = button.data('long'); // Extract info from data-* attributes
       // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
       // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-      var patt = new RegExp("gps((.*))hA");
-      var res = patt.exec(recipient);
+      //var patt = new RegExp("gps((.*))hA");
+      //var res = patt.exec(recipient);
 
       var modal = $(this);
-      modal.find('.modal-body iframe').attr("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyADG2NQL0l-S1yUEjZ9AVhZaYNOjBQVNOI&q="+res[1]); ;
-      })
-
+      modal.find('.modal-body iframe').attr({"src": "https://www.google.com/maps/embed/v1/place?key=AIzaSyADG2NQL0l-S1yUEjZ9AVhZaYNOjBQVNOI&q="+lat+","+long}); 
+      });

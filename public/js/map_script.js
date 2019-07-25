@@ -1,20 +1,7 @@
 function initiateMap() {
   var center = mids;
-  var q = data.map(w => [...w[0]]);
-
-  var x = data.map(da => [da[0], ...da[1].split(",")]);
-  var xy = new Array();
-  for (var i = 0; i < x.length; i++) {
-    xy[i] = x[i].map(g => {
-      if (g.indexOf("<") >= 0) {
-        return g;
-      } else {
-        return parseFloat(g);
-      }
-    });
-  }
   //console.log(xy);
-  var locations = xy;
+  var locations = data;
 
   var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 9,

@@ -119,11 +119,16 @@ app.get("/map", (req, res) => {
         let value = helper(uniqData);
         //console.log(value[0]);
         //console.log(value[1]);
-        const data = returnCoordinates(value[0]);
+        const data = value[0];
+
         let points = new Array();
         for (var j = 0; j < data.length; j++) {
-          points.push({ lat: data[j][1], lon: data[j][2] });
+          points.push({
+            lat: parseFloat(data[j][1]),
+            lon: parseFloat(data[j][2])
+          });
         }
+        points.shift();
         let cent = geocenter(points);
         //console.log(cent);
         var midsy = JSON.parse(
@@ -149,12 +154,13 @@ function helper(uniqData) {
       var res = patt.exec(uniqData[x].locations);
       var newarr = [
         uniqData[x].message +
-          "<>>>>" +
+          "\n" +
           uniqData[x].time +
-          "<>>>>" +
+          "\n" +
           uniqData[x].battery +
           "%",
-        res[1]
+        uniqData[x].latitude,
+        uniqData[x].longitude
       ];
       locData.push(newarr);
     } else {
@@ -163,18 +169,5 @@ function helper(uniqData) {
   }
   return [locData, countOfNoLocation];
 }
-function returnCoordinates(data) {
-  var x = data.map(da => [da[0], ...da[1].split(",")]);
-  var xy = new Array();
-  for (var i = 0; i < x.length; i++) {
-    xy[i] = x[i].map(g => {
-      if (g.indexOf("<") >= 0) {
-        return g;
-      } else {
-        return parseFloat(g);
-      }
-    });
-  }
-  return xy;
-}
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
