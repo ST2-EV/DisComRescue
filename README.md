@@ -11,7 +11,9 @@ Our idea is an improvement to last year's winner project owl. Project owl's one 
 Brief rundown:<br />
 So we used a pi to make our nodes and during a disaster, it would be dropped on the places where communication has been cut. And the survivors would use the app to connect to the network and then answer a few questions and it would also take the coordinates and mine a new block on the blockchain and send it to the node to which it is connected and the node would then push the blockchain to the other nodes and they would all have a copy of it and other people information also gets added to it and thereby a large blockchain containing all the details of the survivors are stored in the node and when at least one of the phones connected to the node have mobile data it would automatically push the chain to the IBM cloud and thereby alerting to the authorities and first responders. 
 <br />
-<br />
+
+![Flowchart explaining how our system works](https://drive.google.com/open?id=1J3xrWf1GJvG4Xbv6RX-TNJHU6Outg2Hk)
+
 Features:<br />
 Multiple phones can be connected to a single node and they can communicate with each other via the app.<br />
 It can be easily scaled and once in the future when we make it as a web app that gets served once a user connects to a node our network will be platform-independent.<br />
