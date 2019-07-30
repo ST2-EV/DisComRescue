@@ -31,7 +31,7 @@ Using loRa instead of traditional wifi to give us more range.<br />
 Making a durable casing for the pi to withstand harsh conditions and attaching a solar-based power source to the pi.<br />
 Implementing ipfs in our network to allow images and other static files to be added to the network allowing the user to attach a picture of his surroundings to the blockchain.<br />
 <br />
-Every year there is at least one flood happening in India and often times the people are alerted of the disaster but no steps are taken to counteract it . I hope with the help of IBM we can make this idea a reality and help save people's lives in india.
+Every year there is at least one flood happening in India and elsewhere and often times, the people are alerted of the disaster but no steps are taken to counteract it . I hope with the help of IBM we can make this idea a reality and help save people's lives in india.
 
 
 
