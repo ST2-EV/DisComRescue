@@ -3,7 +3,8 @@ This is the repository for call for code 2019.<br />
 This is the web client which will be used by the authorities.---->https://discom200.herokuapp.com/<br />
 https://discom200.herokuapp.com/map<br />
 <br />
-The link to the mobile app node: https://github.com/bnair2001/disasterCommsApp <br />
+The link to the mobile app node code: https://github.com/bnair2001/disasterCommsApp <br />
+The link to the mobile app (apk file): https://drive.google.com/file/d/1FPKB87PYIRX47TkvRJSp0k12iEhVxLbc/view?usp=sharing <br />
 The link to the code that runs in the pi: https://github.com/bnair2001/disComNodejs <br />
 Our idea is an improvement to last year's winner project owl. Project owl's one major drawback was that it needs a central system or a mama duck we intend to solve that by using a blockchain to send and receive data from the nodes.
 <Br />
