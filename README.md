@@ -6,6 +6,8 @@ https://discom200.herokuapp.com/map<br />
 The link to the mobile app node code: https://github.com/bnair2001/disasterCommsApp <br />
 The link to the mobile app (apk file): https://drive.google.com/file/d/1FPKB87PYIRX47TkvRJSp0k12iEhVxLbc/view?usp=sharing <br />
 The link to the code that runs in the pi: https://github.com/bnair2001/disComNodejs <br />
+[Link to our Video](https://www.youtube.com/watch?v=9SEFg_HDxz0)
+<Br />
 Our idea is an improvement to last year's winner project owl. Project owl's one major drawback was that it needs a central system or a mama duck we intend to solve that by using a blockchain to send and receive data from the nodes.
 <Br />
 <br />
@@ -20,7 +22,8 @@ Multiple phones can be connected to a single node and they can communicate with 
 It can be easily scaled and once in the future when we make it as a web app that gets served once a user connects to a node our network will be platform-independent.<br />
 We also have a notification system that sends a message to users who are in a danger prone area prompting to make the local map offline.<br />
 The blockchain allows for each node in the network to have a copy of everyone's data thereby making the network more reliable.<br />
-<br />
+<Br />
+<Br />
 Future advancements:<br />
 It works only with android phones as of now. So the web app is the next important thing.<br />
 Switching to a high gain wifi antenna.<br />
