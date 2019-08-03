@@ -3,7 +3,7 @@ This is the repository for call for code 2019.<br />
 This is the web client which will be used by the authorities.---->https://discom200.herokuapp.com/<br />
 https://discom200.herokuapp.com/map<br />
 <br />
-The link to the mobile app node code: https://github.com/bnair2001/disasterCommsApp <br />
+The link to the mobile app code: https://github.com/bnair2001/disasterCommsApp <br />
 The link to the mobile app (apk file): https://drive.google.com/file/d/1FPKB87PYIRX47TkvRJSp0k12iEhVxLbc/view?usp=sharing <br />
 The link to the code that runs in the pi: https://github.com/bnair2001/disComNodejs <br />
 [Link to our Video](https://www.youtube.com/watch?v=9SEFg_HDxz0)
